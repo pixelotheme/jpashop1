@@ -1,9 +1,12 @@
-package jpabook1.domain.item;
+package jpabook1.jpashop1.domain.item;
 
+import jpabook1.jpashop1.domain.Category;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -22,4 +25,6 @@ public abstract class Item {
     private int stockQuantity;
 
     //나머지 컬럼들은 상속관계의 각 엔티티에 있다
+    @ManyToMany(mappedBy = "items")
+    private List<Category> categories = new ArrayList<>();
 }
