@@ -40,6 +40,7 @@ public class ItemServiceTest {
         //when
         Long bookId = itemService.saveItem(book);// book이 item을 상속 받았기 때문에 가능
         Item findOne = itemRepository.findOne(bookId);
+
         //then
         em.flush();
         //같은 영속성 컨텍스트이다 - book은 영속화뒤 id 를 갖고있는 상태로 반환된다
